@@ -15,6 +15,8 @@ var configuration = builder.Configuration;
 
 builder.Services.Configure<AccessTokenConfiguration>(configuration.GetSection(nameof(AccessTokenConfiguration)));
 
+builder.Services.Configure<PlaceHolderUrl>(configuration.GetSection(nameof(PlaceHolderUrl)));
+
 builder.Services.AddInfastructureExtensions(configuration);
 
 builder.Services.AddSwaggerGen(c =>
