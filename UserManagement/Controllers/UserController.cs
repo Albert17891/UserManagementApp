@@ -33,6 +33,14 @@ public class UserController : ControllerBase
 
         return Ok(token);
     }
+    [AllowAnonymous]
+    [HttpGet("Posts")]
+    public async Task<IActionResult> GetUserPost(int id)
+    {
+        var result =await _userService.GetUserPost(id);
+
+        return Ok(result);  
+    }
 
     [HttpGet]
     public async Task<ActionResult<IEnumerable<User>>> GetAllUsers()
@@ -62,6 +70,7 @@ public class UserController : ControllerBase
 
         return Ok(id);
     }
+
 
     [HttpPut("{id}")]
     public IActionResult UpdateUser(int id, User user)

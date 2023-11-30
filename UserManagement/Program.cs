@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using UserManagement.Core.Entities;
 using UserManagement.Infastructure;

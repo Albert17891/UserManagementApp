@@ -1,4 +1,5 @@
 ﻿using UserManagement.Core.Entities;
+using UserManagement.Core.Entities.PlaceHolderModels;
 
 namespace UserManagement.Core.Interfaces.Service;
 
@@ -10,4 +11,6 @@ public interface IUserService
     Task<int> CreateUser(User user);
     Task DeleteUserAsync(int id);
     void UpdateUser(User user);
+
+    Task<List<Post>> GetUserPost(int id);
 }
