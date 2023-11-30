@@ -18,14 +18,13 @@ public static class ServiceCollectionExtensions
 
     public static IServiceCollection AddInfastructureExtensions(this IServiceCollection services, IConfiguration configuration)
     {
-
         services.AddDbContext<AppDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-
         services.AddScoped<IUserProfileRepository, UserProfileRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IUserProfileService, UserProfileService>();
         services.AddScoped<IJwtService, JwtService>();
+        services.AddScoped<IHttpClientService, HttpClientService>();
 
         var serviceProvider = services.BuildServiceProvider();
 

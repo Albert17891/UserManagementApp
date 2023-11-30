@@ -38,7 +38,18 @@ public class UserRepository : IUserRepository
 
     public async Task<User> GetUserByIdAsync(int id)
     {
-        return await _context.Users.SingleOrDefaultAsync(x => x.Id == id);
+        try
+        {
+            var res = await _context.Users.SingleOrDefaultAsync(x => x.Id == id);
+
+            return res;
+        }
+        catch (Exception ec)
+        {
+
+            throw;
+        }
+      
     }
 
     public async Task<bool> Login(string userName, string password)
