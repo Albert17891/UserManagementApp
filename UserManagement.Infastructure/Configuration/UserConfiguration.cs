@@ -12,5 +12,8 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.HasOne(u => u.UserProfile)
                .WithOne(up => up.User)
                .HasForeignKey<UserProfile>(up => up.Id);
+
+        builder.HasIndex(u => u.UserName)
+               .IsUnique();
     }
 }
